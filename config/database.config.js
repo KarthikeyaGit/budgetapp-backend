@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+
 module.exports = {
-    url: 'mongodb://localhost:27017/crud-node-express'
+    url: process.env.db_url
 }
