@@ -1,11 +1,12 @@
-const Login = require("../Models/Login.Model");
+const { User } = require("../modals/all.modal");
 
 
 
 exports.login = (req, res) => {
     console.log("req", req.body)
-    Login.findOne({email: req.body.email, password: req.body.password})
-    .then((data) => {
+    User.findOne({email: req.body.email, password: req.body.password})
+      .then((data) => {
+        console.log("data", data);
       if(data === null) {
         res.send({
           hasError: true,

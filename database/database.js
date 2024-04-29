@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-console.log("dbConfig.url", dbConfig.url);
 mongoose.connect(dbConfig.url)
     .then(() => {
         console.log("Database Connection Successfully!");

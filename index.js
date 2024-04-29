@@ -6,6 +6,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+require("./routing/user.router")(app);
+require("./routing/login.router")(app);
 
 
 
