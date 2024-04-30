@@ -1,5 +1,4 @@
-const { User } = require("../modals/all.modal");
-
+const { User } = require("../models/user.model");
 
 exports.create = (req, res) => {
   const { username, email, password } = req.body;

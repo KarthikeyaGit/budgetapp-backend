@@ -1,10 +1,13 @@
-module.exports = app => {
 
-    const user = require('../controllers/user.controller')
-    
-    app.get('/api/userAllUsers', user.findAll)
-    app.post('/api/getUserByEmail', user.findByEmail)
-    app.put('/api/updateByEmail', user.updateByEmail)
-    app.post('/api/create', user.create)
-    
-    }
+
+const express = require('express');
+const router = express.Router();
+const user = require('../controllers/user.controller')
+
+router.get('/userAllUsers', user.findAll)
+router.post('/getUserByEmail', user.findByEmail)
+router.put('/updateByEmail', user.updateByEmail)
+router.post('/create', user.create)
+
+module.exports = router;
+

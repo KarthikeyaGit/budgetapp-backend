@@ -1,7 +1,8 @@
-module.exports = app => {
+const express = require('express');
+const router = express.Router();
+const loginuser = require('../controllers/login.controller');
 
-    const loginuser = require('../controllers/login.controller')
-    
-    app.get('/api/login', loginuser.login)
+router.get('/login', loginuser.login);
 
-    }
+module.exports = router;
+
