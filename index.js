@@ -14,12 +14,14 @@ const userRouter = require('./routing/user.router')
 const transactionRouter = require('./routing/transaction.router')
 const categoryRouter = require('./routing/category.router')
 const transactionExtractor = require('./controllers/transactionExtractor')
-
+const currencyRouter = require('./routing/currency.router')
 
 app.use('/api', loginRouter);
 app.use('/api', userRouter);
 app.use('/api', transactionRouter);
 app.use('/api', categoryRouter);
+app.use('/api', currencyRouter);
+
 
 app.post('/extractTransactionInfo', transactionExtractor.extractTransactionInfo)
 
