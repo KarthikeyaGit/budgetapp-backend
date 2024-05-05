@@ -1,5 +1,8 @@
-const API_KEY = "AIzaSyBp3K_lk1U3bm8s079dpDmIi_0w4njkwLQ";
-const MODEL_NAME = "gemini-1.5-pro-latest";
+require('dotenv').config()
+
+
+const API_KEY = process.env.API_KEY;
+const MODEL_NAME =  process.env.MODEL_NAME;
 
 const {
     GoogleGenerativeAI,
