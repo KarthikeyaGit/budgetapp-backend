@@ -7,7 +7,7 @@ exports.login = (req, res) => {
         .then((data) => {
             console.log("data", data);
             if (data === null) {
-                res.status(401).send({
+                res.status(200).send({
                     hasError: true,
                     message: "Invalid Email or Password"
                 });

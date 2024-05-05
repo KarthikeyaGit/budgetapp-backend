@@ -1,7 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('./database/database'); 
+const mongoose = require('./database/database');
 const app = express();
+
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -10,6 +13,7 @@ const loginRouter = require('./routing/login.router');
 const userRouter = require('./routing/user.router')
 const transactionRouter = require('./routing/transaction.router')
 const categoryRouter = require('./routing/category.router')
+const transactionExtractor = require('./controllers/transactionExtractor')
 
 
 app.use('/api', loginRouter);
@@ -17,6 +21,7 @@ app.use('/api', userRouter);
 app.use('/api', transactionRouter);
 app.use('/api', categoryRouter);
 
+app.post('/extractTransactionInfo', transactionExtractor.extractTransactionInfo)
 
 
 mongoose.connection.once('open', () => {
