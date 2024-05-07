@@ -63,3 +63,29 @@ exports.updateByEmail = (req, res) => {
 
   })
 }
+
+exports.updateCurrencyById = async (req, res) => {
+  console.log("req.params", req.query);
+  console.log("req.body", req.body);
+
+  if (!req.query.id || !req.body.currency) {
+    return res.status(400).send({ message: "ID and currency are required." });
+  }
+
+  try {
+    const user = await User.findById(req.query.id);
+
+    if (!user) {
+      return res.status(404).send({ message: "User not found." });
+    }
+
+    user.currency = req.body.currency;
+
+    await user.save();
+    
+    return res.status(200).send({ message: "Currency updated successfully." });
+  } catch (error) {
+    console.error("Error updating currency:", error);
+    return res.status(500).send({ message: "Internal server error." });
+  }
+};
