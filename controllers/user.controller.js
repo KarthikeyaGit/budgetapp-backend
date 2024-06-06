@@ -20,6 +20,7 @@ exports.create = (req, res) => {
     });
 };
 
+
 exports.findAll = (req, res) => {
   User.find()
     .then((data) => {
